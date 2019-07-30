@@ -9,9 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7BF4338B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sandbox", "sandbox", "{098D8773-BCD8-4CEC-8183-A3B33E5827B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modularity.AspNetCore", "src\Modularity.AspNetCore\Modularity.AspNetCore.csproj", "{38399934-73B1-4019-8251-188F8230930E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modularity.AspNetCore", "src\Modularity.AspNetCore\Modularity.AspNetCore.csproj", "{38399934-73B1-4019-8251-188F8230930E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modularity.AspNetCore.Abstractions", "src\Modularity.AspNetCore.Abstractions\Modularity.AspNetCore.Abstractions.csproj", "{D08CD246-2926-4C24-8DFD-587D1D693691}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modularity.AspNetCore.Abstractions", "src\Modularity.AspNetCore.Abstractions\Modularity.AspNetCore.Abstractions.csproj", "{D08CD246-2926-4C24-8DFD-587D1D693691}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modularity.Core", "src\Modularity.Core\Modularity.Core.csproj", "{632EF2A3-B799-4C77-AD31-EE1135FF51A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D08CD246-2926-4C24-8DFD-587D1D693691}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D08CD246-2926-4C24-8DFD-587D1D693691}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D08CD246-2926-4C24-8DFD-587D1D693691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632EF2A3-B799-4C77-AD31-EE1135FF51A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632EF2A3-B799-4C77-AD31-EE1135FF51A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632EF2A3-B799-4C77-AD31-EE1135FF51A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632EF2A3-B799-4C77-AD31-EE1135FF51A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{38399934-73B1-4019-8251-188F8230930E} = {18FEF15A-CC9B-43EA-83C5-906031903A09}
 		{D08CD246-2926-4C24-8DFD-587D1D693691} = {18FEF15A-CC9B-43EA-83C5-906031903A09}
+		{632EF2A3-B799-4C77-AD31-EE1135FF51A1} = {18FEF15A-CC9B-43EA-83C5-906031903A09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9444627F-AED1-41B4-B68A-F0CE1831A1F9}
