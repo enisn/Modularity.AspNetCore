@@ -12,17 +12,17 @@ namespace MyFirstPlugin
         public IConfiguration Configuration { get; private set; }
         public void Initialize(IConfiguration configuration)
         {
-            this.Configuration = configuration;
-        }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            
+            this.Configuration = configuration; // Get main application's configuration and keep it to use in ConfigureServices()
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            /* Do your services configurations */
+        }
 
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            /* Do your application configurations  */
         }
     }
 }
