@@ -16,7 +16,7 @@ namespace Modularity.AspNetCore.Configuration
         {
             action?.Invoke(ModularityOptions.Current);
 
-            Modules.LoadedAssemblies = ModularityOptions.Current.ModuleLoader.Load(ModularityOptions.Current);
+            Modules.LoadedAssemblies = ModularityOptions.Current.ModuleLoader.Load(ModularityOptions.Current.Folder);
 
             foreach (var assembly in Modules.LoadedAssemblies)
             {
