@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,11 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Modularity.AspNetCore.Abstractions\Modularity.AspNetCore.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Modularity.AspNetCore.Abstractions\Modularity.AspNetCore.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Modularity.Core.Abstractions\Modularity.Core.Abstractions.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(OutDir)*&quot; &quot;$(SolutionDir)src\sandbox\MyMainWebApplication\Plugins\&quot; /Y" />
+    <Exec Command="xcopy &quot;$(OutDir)*&quot; &quot;$(SolutionDir)sandbox\MyMainWebApplication\Plugins\$(ProjectName)\&quot; /Y" />
   </Target>
 
 </Project>

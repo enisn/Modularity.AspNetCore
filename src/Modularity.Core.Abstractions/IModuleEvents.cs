@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modularity.Core
+namespace Modularity.Core.Abstractions
 {
     public interface IModuleEvents
     {

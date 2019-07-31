@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.2.0-pre</Version>
+    <Authors>enisn</Authors>
+    <Company>enisn</Company>
+    <Description>Abstractions of Modularity.Core</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/enisn/Modularity.AspNetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/enisn/Modularity.AspNetCore</RepositoryUrl>
+    <PackageTags>DotNet Modules,Plugin,Module,DotNet Plugin,Modularity</PackageTags>
+  </PropertyGroup>
+
+</Project>

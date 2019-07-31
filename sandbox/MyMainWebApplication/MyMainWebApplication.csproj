@@ -13,8 +13,10 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Modularity.AspNetCore\Modularity.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\Modularity.Core\Modularity.Core.csproj" />
+    <ProjectReference Include="..\..\src\Modularity.AspNetCore.Abstractions\Modularity.AspNetCore.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Modularity.AspNetCore\Modularity.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\src\Modularity.Core.Abstractions\Modularity.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Modularity.Core\Modularity.Core.csproj" />
   </ItemGroup>
 
 </Project>
