@@ -47,6 +47,34 @@ Firstly you'll need a main project and at least one module project. Let's start 
 
 - That's it! Your Main Application is ready to load all modules from **Plugins** folder.
 
+- _(OPTIONAL)_ You can manage your modules with config file. Just create following **plugins.json** file under **Plugins** folder:
+
+```json
+[
+  {
+    "Name": "MyFirstPlugin",
+    "IsActive": true,
+    "LoadAllDependencies" :  true
+  },
+  {
+    "Name": "MySecondPlugin",
+    "IsActive": false,
+    "LoadAllDependencies" :  true
+  }
+]
+```
+
+If you use configuration file, you need to place your modules their own folders like this:
+
+![image](https://user-images.githubusercontent.com/23705418/62240890-b0193900-b3e0-11e9-8634-b7b9a4aa853c.png)
+
+To automaticly copy after build your modules with olders, change build action like this:
+```
+xcopy "$(OutDir)*" "$(SolutionDir)MyMainWebApplication\Plugins\$(ProjectName)\" /Y
+```
+> **MyMainWebApplication**: This is your main host application.
+
+
 ***
 
 ## Creating a Module
