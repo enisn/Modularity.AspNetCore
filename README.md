@@ -5,8 +5,7 @@ This library allows to import your class libraries with controllers to your main
 [![Nuget](https://img.shields.io/nuget/v/Modularity.AspNetCore?label=Modularity.AspNetCore&logo=nuget)](https://www.nuget.org/packages/Modularity.AspNetCore/)
 [![Nuget](https://img.shields.io/nuget/v/Modularity.Core?label=Modularity.Core&logo=nuget)](https://www.nuget.org/packages/Modularity.Core/)
 
-![Modularity AspNetCore](https://user-images.githubusercontent.com/23705418/62163439-04f67a00-b323-11e9-9b15-34f8262edcce.png)
-
+![Modularity AspNetCore_v2](https://user-images.githubusercontent.com/23705418/62229283-062db280-b3c8-11e9-8be0-6cd3ba9c9c91.png)
 
 ***
 # Getting Started
