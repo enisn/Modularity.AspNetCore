@@ -2,11 +2,14 @@
   {
     "Name": "MyFirstPlugin",
     "IsActive": true,
-    "LoadAllDependencies" :  true
+    "LoadAllDependencies": true,
   },
   {
     "Name": "MySecondPlugin",
     "IsActive": false,
-    "LoadAllDependencies" :  true
+    "LoadAllDependencies": true,
+    "Files": [
+      "C:\\Users\\enisn\\.nuget\\packages\\newtonsoft.json\\12.0.2\\lib\\netstandard2.0\\Newtonsoft.Json.dll"
+    ]
   }
 ]
