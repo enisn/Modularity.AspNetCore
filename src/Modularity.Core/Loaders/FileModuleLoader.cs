@@ -29,7 +29,7 @@ namespace Modularity.Core.Loaders
                     {
                         Assembly = assembly,
                         AssemblyName = assembly.FullName,
-                        EntryObject = (IEntryObject)Activator.CreateInstance(entryObjectType),
+                        EntryObjects = new[] { (IEntryObject)Activator.CreateInstance(entryObjectType) },
                         Exception = null,
                         Name = assembly.GetCustomAttribute<AssemblyTitleAttribute>()?.Title
                     };
@@ -92,7 +92,6 @@ namespace Modularity.Core.Loaders
                             module.Assembly = assembly;
                             module.AssemblyName = assembly.FullName;
                             module.EntryObjects = assembly.GetTypes().Where(x => typeof(IEntryObject).IsAssignableFrom(x)).Select(s => (IEntryObject)Activator.CreateInstance(s)).ToList();
-                            module.EntryObject = module.EntryObjects?.FirstOrDefault();
                             module.Name = config.Name;
                         }
                         else

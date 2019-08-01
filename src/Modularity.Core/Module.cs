@@ -16,7 +16,6 @@ namespace Modularity.Core
         public IList<Assembly> Assemblies { get; set; }
         public Exception Exception { get; set; }
         public IList<Exception> Exceptions { get; set; } = new List<Exception>();
-        public IList<IEntryObject> EntryObjects { get; set; } 
-        public IEntryObject EntryObject { get; set; }
+        public IList<IEntryObject> EntryObjects { get; set; }
     }
 }

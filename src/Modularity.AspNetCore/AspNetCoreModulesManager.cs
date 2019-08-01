@@ -22,7 +22,7 @@ namespace Modularity.AspNetCore
                 {
                     moduleStartups = Modules
                         .Where(x => x is IModuleStartup)
-                        .Select(s => s.EntryObject as IModuleStartup)
+                        .SelectMany(s => s.EntryObjects.Cast<IModuleStartup>())
                         .ToList();
                 }
                 return moduleStartups;

@@ -12,7 +12,7 @@ namespace Modularity.Core.Abstractions
         string Name { get; }
         string AssemblyName { get; }
         Assembly Assembly { get; }
-        Exception Exception { get; }
-        IEntryObject EntryObject { get; set; }
+        IList<Exception> Exceptions { get; }
+        IList<IEntryObject> EntryObjects { get; }
     }
 }
