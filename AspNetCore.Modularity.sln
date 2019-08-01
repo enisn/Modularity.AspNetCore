@@ -26,7 +26,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMainWebApplication", "san
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstPlugin", "sandbox\MyFirstPlugin\MyFirstPlugin.csproj", "{F3EBCA12-E100-4F05-B087-796208182D10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modularity.Core.Abstractions", "src\Modularity.Core.Abstractions\Modularity.Core.Abstractions.csproj", "{38C76CF3-D53C-478C-BE8B-FFEB0FD419FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modularity.Core.Abstractions", "src\Modularity.Core.Abstractions\Modularity.Core.Abstractions.csproj", "{38C76CF3-D53C-478C-BE8B-FFEB0FD419FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

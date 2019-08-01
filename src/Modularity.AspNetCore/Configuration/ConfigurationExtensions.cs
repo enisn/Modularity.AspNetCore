@@ -20,10 +20,10 @@ namespace Modularity.AspNetCore.Configuration
 
             AspNetCoreModulesManager.Current.LoadModules(ModularityOptions);
 
-            foreach (var module in AspNetCoreModulesManager.Current.Modules)
-            {
-                builder.AddApplicationPart(module.Assembly);
-            }
+            foreach (var module in AspNetCoreModulesManager.Current.Modules)            
+                if (module.Assembly != null)
+                    builder.AddApplicationPart(module.Assembly);
+            
             return builder;
         }
 

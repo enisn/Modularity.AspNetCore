@@ -2,9 +2,11 @@
 using Modularity.Core.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,7 +29,7 @@ namespace Modularity.Core.Loaders
                     {
                         Assembly = assembly,
                         AssemblyName = assembly.FullName,
-                        EntryObject = (IEntryObject)Activator.CreateInstance(entryObjectType),
+                        EntryObjects = new[] { (IEntryObject)Activator.CreateInstance(entryObjectType) },
                         Exception = null,
                         Name = assembly.GetCustomAttribute<AssemblyTitleAttribute>()?.Title
                     };
@@ -51,43 +53,56 @@ namespace Modularity.Core.Loaders
 
             foreach (var config in configs.Where(x => x.IsActive))
             {
-                Module module;
+                Module module = new Module
+                {
+                    Assemblies = new List<Assembly>(),
+                    Name = config.Name,
+                    Exception = null,
+                    EntryObjects = new List<IEntryObject>()
+                };
+
                 try
                 {
-                    module = new Module
-                    {
-                        Assemblies = new List<Assembly>(),
-                        Name = config.Name,
-                        Exception = null,
-                        EntryObjects = new List<IEntryObject>()
-                    };
+                    if (config.Files != null && config.Files.Length > 0)
+                        foreach (var file in config.Files)
+                            try
+                            {
+                                using (var ms = new MemoryStream(File.ReadAllBytes(file)))
+                                    AssemblyLoadContext.Default.LoadFromStream(ms);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine(ex.ToString());
+                                module.Exceptions?.Add(ex);
+                            }
 
-                    var files = config.Files;
-                    if (files == null || files.Length == 0)
-                        files = Directory.GetFiles(Path.Combine(directory, config.Name), "*.dll");
+                    var mainAssemblyName = Path.Combine(directory, config.Name, config.Name + ".dll");
 
-                    foreach (var file in files)
+                    foreach (var file in Directory.GetFiles(Path.Combine(directory, config.Name), "*.dll"))
                     {
+                        var isMainAssembly = file == mainAssemblyName;
+                        if (!config.LoadAllDependencies && !isMainAssembly)
+                            continue;
 
                         var bytes = File.ReadAllBytes(file);
-                        var assembly = Assembly.Load(bytes);
 
-                        module.Assemblies.Add(assembly);
-
-                        var entryObjectTypes = assembly.GetTypes().Where(x => x.IsClass && typeof(IEntryObject).IsAssignableFrom(x)).ToList();
-                        if (entryObjectTypes != null && entryObjectTypes.Count > 0)
+                        if (isMainAssembly)
                         {
-                            foreach (var entryobjectType in entryObjectTypes)
-                                module.EntryObjects.Add((IEntryObject)Activator.CreateInstance(entryobjectType));
-
-                            module.EntryObject = (IEntryObject)Activator.CreateInstance(entryObjectTypes.FirstOrDefault());
+                            var assembly = Assembly.Load(bytes);
                             module.Assembly = assembly;
-                            if (!config.LoadAllDependencies)
-                                break;
+                            module.AssemblyName = assembly.FullName;
+                            module.EntryObjects = assembly.GetTypes().Where(x => typeof(IEntryObject).IsAssignableFrom(x)).Select(s => (IEntryObject)Activator.CreateInstance(s)).ToList();
+                            module.Name = config.Name;
+                        }
+                        else
+                        {
+                            using (var ms = new MemoryStream(bytes))
+                            {
+                                var assembly = AssemblyLoadContext.Default.LoadFromStream(ms);
+                                module.Assemblies.Add(assembly);
+                            }
                         }
                     }
-
-
                 }
                 catch (Exception ex)
                 {
