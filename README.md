@@ -84,6 +84,8 @@ xcopy "$(OutDir)*" "$(SolutionDir)MyMainWebApplication\Plugins\$(ProjectName)\" 
 
 - Add [Modularity.AspNetCore.Abstractions](https://www.nuget.org/packages/Modularity.AspNetCore.Abstractions) package to project.
 
+- Add [Modularity.Core.Abstractions](https://www.nuget.org/packages/Modularity.Core.Abstractions) package to project.
+
 - Create a class and inherit from `IModuleStartup`. This class will be used initialization.
 
 ```csharp
