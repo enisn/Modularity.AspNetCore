@@ -5,10 +5,10 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modularity.Core
+namespace Modularity.Core.Abstractions
 {
     public interface IModuleLoader
     {
-        IList<Assembly> Load(params object[] parameters);
+        IList<IModule> Load(params object[] parameters);
     }
 }

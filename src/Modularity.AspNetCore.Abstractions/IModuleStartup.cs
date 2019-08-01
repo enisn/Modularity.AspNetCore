@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Modularity.Core.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Modularity.AspNetCore.Abstractions
 {
-    public interface IModuleStartup
+    public interface IModuleStartup : IEntryObject
     {
         /// <summary>
         /// This method will be called first when plugin was loaded successfully.

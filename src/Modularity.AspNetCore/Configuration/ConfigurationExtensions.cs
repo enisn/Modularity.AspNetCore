@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Modularity.Core.Configurations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +11,25 @@ using System.Text;
 
 namespace Modularity.AspNetCore.Configuration
 {
-    public static class ModulesManager
+    public static class ConfigurationExtensions
     {
+        internal static ModularityOptions ModularityOptions { get; set; } = new ModularityOptions();
         public static IMvcBuilder AddModularity(this IMvcBuilder builder, Action<ModularityOptions> action = null)
         {
-            action?.Invoke(ModularityOptions.Current);
+            action?.Invoke(ModularityOptions);
 
-            Modules.LoadedAssemblies = ModularityOptions.Current.ModuleLoader.Load(ModularityOptions.Current.Folder);
+            AspNetCoreModulesManager.Current.LoadModules(ModularityOptions);
 
-            foreach (var assembly in Modules.LoadedAssemblies)
+            foreach (var module in AspNetCoreModulesManager.Current.Modules)
             {
-                builder.AddApplicationPart(assembly);
+                builder.AddApplicationPart(module.Assembly);
             }
             return builder;
         }
 
         public static IServiceCollection AddModuleServices(this IServiceCollection services, IConfiguration configuration)
         {
-            foreach (var startup in Modules.ModuleStartups)
+            foreach (var startup in AspNetCoreModulesManager.Current.ModuleStartups)
             {
                 startup.Initialize(configuration);
                 startup.ConfigureServices(services);
@@ -37,7 +39,7 @@ namespace Modularity.AspNetCore.Configuration
 
         public static IApplicationBuilder UseModulartiy(this IApplicationBuilder app, IHostingEnvironment env)
         {
-            foreach (var startup in Modules.ModuleStartups)
+            foreach (var startup in AspNetCoreModulesManager.Current.ModuleStartups)
             {
                 startup.Configure(app, env);
             }

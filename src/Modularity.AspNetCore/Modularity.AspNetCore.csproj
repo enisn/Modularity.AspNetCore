@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>enisn</Authors>
-    <Version>0.1.0-pre</Version>
+    <Version>0.2.0-pre</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>This library allows to import your class libraries with controllers to your main project. So you can easily use plug-in &amp; plug-out your features.</Description>
     <PackageTags>AspNetCore,Plugin,Module,AspNet Plugin,Modularity</PackageTags>

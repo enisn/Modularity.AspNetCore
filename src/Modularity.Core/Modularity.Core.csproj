@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.1.0-pre</Version>
+    <Version>0.2.0-pre</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>enisn</Authors>
     <PackageProjectUrl>https://github.com/enisn/Modularity.AspNetCore</PackageProjectUrl>
@@ -10,6 +10,19 @@
     <PackageTags>DotNet Modules,Plugin,Module,DotNet Plugin,Modularity</PackageTags>
     <PackageReleaseNotes>This library allows to import your class libraries to your main project. So you can easily use plug-in &amp; plug-out your features.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Core features for modularity.</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Attributes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Modularity.Core.Abstractions\Modularity.Core.Abstractions.csproj" />
+  </ItemGroup>
 
 </Project>

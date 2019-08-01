@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "MyFirstPlugin",
+    "IsActive": true,
+    "LoadAllDependencies" :  true
+  },
+  {
+    "Name": "MySecondPlugin",
+    "IsActive": false,
+    "LoadAllDependencies" :  true
+  }
+]
