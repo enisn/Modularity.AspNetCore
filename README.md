@@ -2,8 +2,17 @@
 
 This library allows to import your class libraries with controllers to your main project. So you can easily use plug-in & plug-out your features.
 
+## Releases
 [![Nuget](https://img.shields.io/nuget/v/Modularity.AspNetCore?label=Modularity.AspNetCore&logo=nuget)](https://www.nuget.org/packages/Modularity.AspNetCore/)
+
 [![Nuget](https://img.shields.io/nuget/v/Modularity.Core?label=Modularity.Core&logo=nuget)](https://www.nuget.org/packages/Modularity.Core/)
+
+## Badges
+[![CodeFactor](https://www.codefactor.io/repository/github/enisn/modularity.aspnetcore/badge)](https://www.codefactor.io/repository/github/enisn/modularity.aspnetcore) 
+[![Build status](https://ci.appveyor.com/api/projects/status/gvp97y2krx4ea3rm?svg=true)](https://ci.appveyor.com/project/enisn/modularity-aspnetcore)
+
+
+***
 
 ![Modularity AspNetCore_v2](https://user-images.githubusercontent.com/23705418/62229283-062db280-b3c8-11e9-8be0-6cd3ba9c9c91.png)
 
