@@ -1,10 +1,7 @@
 ﻿using Modularity.AspNetCore.Abstractions;
 using Modularity.Core.Managers;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Modularity.AspNetCore
 {
@@ -21,8 +18,7 @@ namespace Modularity.AspNetCore
                 if (moduleStartups == null)
                 {
                     moduleStartups = Modules
-                        .Where(x => x is IModuleStartup)
-                        .SelectMany(s => s.EntryObjects.Cast<IModuleStartup>())
+                        .SelectMany(s => s.EntryObjects.Select(s2 => s2 as IModuleStartup).Where(x => x != null))
                         .ToList();
                 }
                 return moduleStartups;
