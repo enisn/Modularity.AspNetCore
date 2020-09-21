@@ -76,7 +76,7 @@ If you use configuration file, you need to place your modules their own folders 
 
 ![image](https://user-images.githubusercontent.com/23705418/62240890-b0193900-b3e0-11e9-8634-b7b9a4aa853c.png)
 
-To automaticly copy after build your modules with olders, change build action like this:
+To automaticly copy after build your modules with folders, change build action like this:
 ```
 xcopy "$(OutDir)*" "$(SolutionDir)MyMainWebApplication\Plugins\$(ProjectName)\" /Y
 ```
