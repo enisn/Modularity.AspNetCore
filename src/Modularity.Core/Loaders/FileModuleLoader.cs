@@ -111,6 +111,9 @@ namespace Modularity.Core.Loaders
                         Name = config.Name,
                         Exception = ex,
                     };
+
+                    Debug.WriteLine(ex.ToString());
+                    Console.WriteLine(ex);
                 }
                 yield return module;
             }
