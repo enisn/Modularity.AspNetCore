@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.3.2-pre</Version>
+    <Version>0.4.0-pre.1</Version>
     <Authors>enisn</Authors>
     <Company>enisn</Company>
     <Description>Abstractions of Modularity.Core</Description>
