@@ -30,6 +30,6 @@ namespace Modularity.AspNetCore.Abstractions
         /// </summary>
         /// <param name="app">ApplicationBuilder from Main application</param>
         /// <param name="env">HostingEnvirorment from main application</param>
-        void Configure(IApplicationBuilder app, IHostingEnvironment env);
+        void Configure(IApplicationBuilder app, IWebHostEnvironment env);
     }
 }

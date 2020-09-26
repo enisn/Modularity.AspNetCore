@@ -37,7 +37,7 @@ namespace Modularity.AspNetCore.Configuration
             return services;
         }
 
-        public static IApplicationBuilder UseModulartiy(this IApplicationBuilder app, IHostingEnvironment env)
+        public static IApplicationBuilder UseModulartiy(this IApplicationBuilder app, IWebHostEnvironment env)
         {
             foreach (var startup in AspNetCoreModulesManager.Current.ModuleStartups)
             {
