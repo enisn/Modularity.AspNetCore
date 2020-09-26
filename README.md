@@ -87,9 +87,7 @@ xcopy "$(OutDir)*" "$(SolutionDir)MyMainWebApplication\Plugins\$(ProjectName)\" 
 
 ## Creating a Module
 
-- Create a .Net Standard class library.
-
-- Add [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) package.
+- Create a .Net Core class library.
 
 - Add [Modularity.AspNetCore.Abstractions](https://www.nuget.org/packages/Modularity.AspNetCore.Abstractions) package to project.
 
